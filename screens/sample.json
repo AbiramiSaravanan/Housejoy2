@@ -1,0 +1,26 @@
+[
+    {
+        "image":"https://pbs.twimg.com/media/Dkf3o_pXgAEpdL3.jpg",
+        "name":"Tony Strak",
+        "price":"900 Onwards",
+        "rating":"4.2"
+    },
+    {
+        "image":"https://i.redd.it/n4d28b6xggi11.png",
+        "name":"Bruce",
+        "price":"600 Onwards",
+        "rating":"4.8"
+    },
+    {
+        "image":"https://amp.thisisinsider.com/images/5a98513226789474068b464b-1136-852.jpg",
+        "name":"T challa",
+        "price":"1000 Onwards",
+        "rating":"4.0"
+    },
+    {
+        "image":"https://www.jmgads.com/vjsite/ss/chrisevans.png",
+        "name":"Steve Rogers",
+        "price":"1500 Onwards",
+        "rating":"4.9"
+    }
+]
