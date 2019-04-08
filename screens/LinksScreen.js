@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet,TouchableHighlight} from 'react-native';
-import {Card,Divider,Icon} from 'react-native-elements';
-import {Left,Right,CardItem,Button} from 'native-base';
+import {Divider,Icon} from 'react-native-elements';
+import {Card,Left,Right,CardItem,Button} from 'native-base';
 import { ListItem, CheckBox } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import Jobid from '../Jobid';
@@ -73,7 +73,7 @@ paddingTop:3,fontSize:15}}>
 </Button></CardItem>
 </View>
   </Card>
-  <Card style={{width:null,height:260,flex:1}}>
+  <Card>
   <View style={{flexDirection:'column'}}>
 <CardItem style={{flexDirection:'row'}}>
 <Left>

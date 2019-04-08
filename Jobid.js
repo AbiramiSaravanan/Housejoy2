@@ -85,7 +85,7 @@ export default class Jobid extends React.Component {
   </Card>
   </ScrollView>
   <View style={{flex:1,paddingTop:60,paddingLeft:100}}>
-  <Button style={{backgroundColor:'grey',
+  <Button style={{backgroundColor:'red',
       width:150,
      paddingLeft:40,
       textAlign:'center',}}>
