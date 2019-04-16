@@ -11,6 +11,9 @@ import Notification from '../Accountssubpage/Notification';
 import Profile from '../Accountssubpage/Profile';
 import Address from '../Accountssubpage/Address';
 import LinksScreen from './LinksScreen';
+import Wallet from '../Accountssubpage/Wallet';
+import Rating  from '../Accountssubpage/Rating';
+
 
 import ExpoLinksScreen from '@expo/samples/ExpoLinksView';
 class SettingsScreen extends React.Component {
@@ -83,7 +86,7 @@ class SettingsScreen extends React.Component {
               <Ionicons name="ios-arrow-forward" size={20}/>
               </Right>
             </ListItem>
-            <ListItem>
+            <ListItem onPress={() => this.props.navigation.navigate('wallet')}>
               <Left>
               <Image source={require('../assets/images/wallet.png')} style={{height:23,width:23}}/>
                 <Text style={{paddingLeft:10}}>My Wallet</Text>
@@ -92,8 +95,8 @@ class SettingsScreen extends React.Component {
               <Ionicons name="ios-arrow-forward" size={20}/>
               </Right>
             </ListItem>
-            <ListItem>
-              <Left>
+            <ListItem onPress={() => this.props.navigation.navigate('rating')}>
+              <Left >
               <Image source={require('../assets/images/star.png')} style={{height:23,width:23}}/>
                 <Text style={{paddingLeft:10}}>Rate Us</Text>
               </Left>
@@ -127,6 +130,8 @@ const stemstack = createStackNavigator({
   profile:Profile,
   address:Address,
   links:LinksScreen,
+  wallet:Wallet,
+  rating:Rating,
   
 },
 {

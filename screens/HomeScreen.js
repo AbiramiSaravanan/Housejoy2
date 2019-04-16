@@ -10,9 +10,11 @@ import {
   View,
 
 } from 'react-native';
-import { SearchBar,TouchableHighlight,Badge} from 'react-native-elements';
+import { SearchBar,TouchableHighlight,Badge, Divider} from 'react-native-elements';
 import {Button} from 'native-base';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { widthPercentageToDP,  heightPercentageToDP } from 'react-native-responsive-screen';
+
 import StickyHeaderFooterScrollView from 'react-native-sticky-header-footer-scroll-view';
 import LinksScreen from './LinksScreen';
 import Jobid from '../Jobid';
@@ -45,8 +47,8 @@ import Subscription from '../Subscription';
 
     return (
       <ScrollView>
-      <View>
-      <ImageBackground source={{uri:"https://images.pexels.com/photos/1531677/pexels-photo-1531677.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}} style={{width: '100%', height: '100%'}}>
+      <View style={{flex:1}}>
+      
 
      <Header style={{backgroundColor:'#3c3b5c',height:150}}>
      <View style={styles.headerfull}>
@@ -71,119 +73,153 @@ import Subscription from '../Subscription';
       </View>
      </Header>
     
-    <Carousel 
-            
+     <Carousel 
+            autoplay={true}
+            autoplayInterval={2000}
             selectedIndex={2}
-            
             infinite
-            afterChange={this.onHorizontalSelectedIndexChange}
-          >
-            <View style={[
-                styles.containerHorizontal, ]}>
-               <Image source={{uri: 'https://www.gettyimages.in/gi-resources/images/500px/983794168.jpg'}} style={{height: 200, width: 500,marginLeft:55}}/>
+            afterChange={this.onHorizontalSelectedIndexChange}>
+            <View style={{flexGrow: 1,alignItems: 'center',justifyContent: 'center',}}>
+               <Image source={require('../assets/images/pestcontrol.png')} style={{height: 200, width: 500,marginLeft:55}}/>
             </View>
-            <View
-              style={[styles.containerHorizontal]}
-            >
-              <Image source={{uri: 'https://cdn.pixabay.com/photo/2013/01/04/11/32/toronto-73508_960_720.jpg'}} style={{height: 200, width: 500,marginLeft:55}}/>
+            <View style={{flexGrow: 1,alignItems: 'center',justifyContent: 'center',}}>
+              <Image source={require('../assets/images/carpentry.jpg')} style={{height: 200, width: 500,marginLeft:55}}/>
             </View>
-            <View
-              style={[
-                styles.containerHorizontal,
-               
-              ]}
-            >
-              <Image source={{uri: 'https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/01/26/104970968-GettyImages-160330770.600x400.jpg?v=1516991794'}} style={{height: 200, width: 500,marginLeft:55}}/>
+            <View style={{flexGrow: 1,alignItems: 'center',justifyContent: 'center',}}>
+              <Image source={require('../assets/images/acservice.jpeg')} style={{height: 200, width: 500,marginLeft:55}}/>
             </View>
           </Carousel>
-      
-           <Card style={{width:355,height:132}}>
-           <View >
-             <View style={styles.servicesiconrowone}>
-         
-  <CardItem style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth:0.3,
-    borderRightWidth: 0.3,
-    borderRightColor: 'grey',
-  }}>
-  <View style={{flexDirection:'column',alignItems:'center',width:82}}>
-  <Icon name="home"> </Icon>
-  <Text style={{fontSize:12}}>Home Cleaning</Text>
-  </View>
-  </CardItem>
 
-  <CardItem style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth:0.3,
-    borderRightWidth: 0.3,
-    borderRightColor: 'grey',
-  }}>
-  <View style={{flexDirection:'column',alignItems:'center',width:82}}>
-  <Icon name="home"> </Icon>
-  <Text style={{fontSize:12}}>Pest Control</Text>
-  </View>
-  </CardItem>
+          <View style={{width:widthPercentageToDP('99%'),height:heightPercentageToDP('40%')}}>
+          
+        
+          <View style={{flexDirection:'column',padding:'5%'}}>
+        <View style={{justifyContent:'space-between',flexDirection:'row',padding:'4%'}}>
+       
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/plug.png')} style={{height:35,width:35}}/>
+        <Text>
+          Electricals
+        </Text>
+        </View>
 
-  <CardItem style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth:0.3,
-    borderRightWidth: 0.3,
-    borderRightColor: 'grey',
-  }}>
-  <View style={{flexDirection:'column',alignItems:'center',width:82}}>
-  <Icon name="home"> </Icon>
-  <Text style={{fontSize:12}}>Carpentry</Text>
-  </View>
-  </CardItem>
- </View>
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/chainsaw.png')} style={{height:35,width:35}}/>
+        <Text>
+          Carpentry
+        </Text>
+        </View>
+       
+        </TouchableOpacity>
 
-  <View style={styles.servicesiconrowtwo}>
-    <CardItem style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth:0.3,
-    borderRightWidth: 0.3,
-    borderRightColor: 'grey',
-  }}>
-  <View style={{flexDirection:'column',alignItems:'center',width:82}}>
-  <Icon name="home"> </Icon>
-  <Text style={{fontSize:12}}>Electrical</Text>
-  </View>
-  </CardItem> 
-  <CardItem style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth:0.3,
-    borderRightWidth: 0.3,
-    borderRightColor: 'grey',
-  }}>
-  <View style={{flexDirection:'column',alignItems:'center',width:82}}>
-  <Icon name="home"> </Icon>
-  <Text style={{fontSize:12}}>Appliances</Text>
-  </View>
-  </CardItem> 
-  <CardItem style={{
-    borderBottomColor: 'grey',
-    borderBottomWidth:0.3,
-    borderRightWidth: 0.3,
-    borderRightColor: 'grey',
-  }}>
-  <View style={{flexDirection:'column',alignItems:'center',width:82}}>
-  <Icon name="home"> </Icon>
-  <Text style={{fontSize:12}}>Plumbings</Text>
-  </View>
-  </CardItem> 
-  
-             </View>
-             {/* <Icon name="home">
-             </Icon>
- <Text>{"\n"}</Text> 
-             <Text>home</Text> */}
-             </View>
-           </Card>
-          <Card style={{width:355,height:260}}>
+
+
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/air-conditioner.png')} style={{height:35,width:35}}/>
+        <Text>
+          AC services
+        </Text>
+        </View>
+       
+        </TouchableOpacity>
+        </View>
+        
+
+        <View style={{justifyContent:'space-between',flexDirection:'row',padding:'4%'}}>
+       
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/plug.png')} style={{height:35,width:35}}/>
+        <Text>
+          Electricals
+        </Text>
+        </View>
+
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/chainsaw.png')} style={{height:35,width:35}}/>
+        <Text>
+          Carpentry
+        </Text>
+        </View>
+       
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/air-conditioner.png')} style={{height:35,width:35}}/>
+        <Text>
+          AC services
+        </Text>
+        </View>
+       
+        </TouchableOpacity>
+        </View>
+        
+
+        <View style={{justifyContent:'space-between',flexDirection:'row',padding:'4%'}}>
+       
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/ac.png')}/>
+        <Text>
+          painting
+        </Text>
+        </View>
+
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/curl.png')} style={{height:35,width:35}}/>
+        <Text>
+          salon at home
+        </Text>
+        </View>
+       
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Pestscreen')}>
+       
+        <View style={{flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+        <Image source={require('../assets/images/more.png')} style={{height:35,width:35}}/>
+        <Text>
+          more
+        </Text>
+        </View>
+       
+        </TouchableOpacity>
+        </View>
+        </View>
+        </View>
+<View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+<View style={{width:widthPercentageToDP('99%'),height:heightPercentageToDP('32%')}}>
+<Image source={require('../assets/images/cleanAd.png')} style={{height:'100%',width:'100%',paddingTop:'20%'}} />
+</View>
+
+<View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+
+
+          
+          <View style={{width:widthPercentageToDP('99%')}}>
           <View style={{flex:1,flexDirection:'column'}}>
 <CardItem>
-  <Text>AC services</Text>
+  <Text style={styles.description}>AC services</Text>
 </CardItem>
 <CardItem>
 <View style={styles.twocardsinglerow}>
@@ -192,46 +228,234 @@ import Subscription from '../Subscription';
           showsHorizontalScrollIndicator={false}>
            <Card style={styles.cardrow} >
            <CardItem cardBody>
-              <Image source={{uri: 'http://www.bnyconline.com/common/images/products/large/CAW348-8506_1.JPG'}} style={{height: 120, width: null, flex: 1}}/>
+           <Image source={require('../assets/images/acserv.jpg')} style={{height: 120, width: null, flex: 1}}/>
             </CardItem>
             <Text style={styles.description}>Dry servicing</Text>
             </Card>
            <Card style={styles.cardrow}>
            <CardItem cardBody>
-              <Image source={{uri: 'https://assets.abfrlcdn.com/img/app/categorymedia/production/7/77-37-6475.jpg'}} style={{height: 120, width: null, flex: 1}}/>
+           <Image source={require('../assets/images/acinstallation.jpg')} style={{height: 120, width: null, flex: 1}}/>
             </CardItem>
             <Text style={styles.description}>Installation{"\n"}</Text>
              
            </Card>
            <Card style={styles.cardrow}>
            <CardItem cardBody>
-              <Image source={{uri: 'https://assets.abfrlcdn.com/img/app/categorymedia/production/7/77-37-6475.jpg'}} style={{height: 120, width: null, flex: 1}}/>
+           <Image source={require('../assets/images/wetservice.jpg')} style={{height: 120, width: null, flex: 1}}/>
             </CardItem>
-            <Text style={styles.description}>Installation{"\n"}</Text>
+            <Text style={styles.description}>Wet Services{"\n"}</Text>
              
            </Card>
            <Card style={styles.cardrow}>
            <CardItem cardBody>
-              <Image source={{uri: 'https://assets.abfrlcdn.com/img/app/categorymedia/production/7/77-37-6475.jpg'}} style={{height: 120, width: null, flex: 1}}/>
+           <Image source={require('../assets/images/gasrefill.jpg')} style={{height: 120, width: null, flex: 1}}/>
             </CardItem>
-            <Text style={styles.description}>Installation{"\n"}</Text>
+            <Text style={styles.description}>Gas Refill{"\n"}</Text>
              
            </Card>
            <Card style={styles.cardrow}>
            <CardItem cardBody>
-              <Image source={{uri: 'https://assets.abfrlcdn.com/img/app/categorymedia/production/7/77-37-6475.jpg'}} style={{height: 120, width: null, flex: 1}}/>
+           <Image source={require('../assets/images/acrepair.jpg')} style={{height: 120, width: null, flex: 1}}/>
             </CardItem>
-            <Text style={styles.description}>Installation{"\n"}</Text>
+            <Text style={styles.description}>AC Repair{"\n"}</Text>
+             
+           </Card>
+           </ScrollView>
+          </View>
+         </CardItem>
+         </View>
+          </View>
+
+
+          <View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+
+
+          <View style={{width:widthPercentageToDP('99%')}}>
+          <View style={{flex:1,flexDirection:'column'}}>
+<CardItem>
+  <Text style={styles.description}>Home cleaning services</Text>
+</CardItem>
+<CardItem>
+<View style={styles.twocardsinglerow}>
+<ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}>
+           <Card style={styles.cardrowtwo} >
+           <CardItem cardBody>
+           <Image source={require('../assets/images/sofacleanad.png')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Sofa cleaning packages</Text>
+            </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/houseclean.jpg')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>General cleaning{"\n"}</Text>
+             
+           </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/tankclean.png')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Overhead Water Storage{"\n"}</Text>
+             
+           </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/carpetclean.jpg')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Carpet Cleaning{"\n"}</Text>
+             
+           </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/furnitureclean.jpg')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Furniture cleaning{"\n"}</Text>
              
            </Card>
            </ScrollView>
 </View>
          </CardItem>
          </View>
-          </Card>
+          </View>
           
-          <Card style={{width:355,height:200}}>
-          <View style={{flex:1,flexDirection:'column',paddingBottom:20,padding:10}}>
+          <View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+          <View style={{width:widthPercentageToDP('99%'),height:heightPercentageToDP('32%')}}>
+<Image source={require('../assets/images/cleanAd.png')} style={{height:'100%',width:'100%',paddingTop:'20%'}} />
+</View>
+
+<View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+
+
+<View style={{width:widthPercentageToDP('99%')}}>
+          <View style={{flex:1,flexDirection:'column'}}>
+<CardItem>
+  <Text style={styles.description}>Home cleaning services</Text>
+</CardItem>
+<CardItem>
+<View style={styles.twocardsinglerow}>
+<ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}>
+           <Card style={styles.cardrowtwo} >
+           <CardItem cardBody>
+           <Image source={require('../assets/images/sofacleanad.png')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Sofa cleaning packages</Text>
+            </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/houseclean.jpg')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>General cleaning{"\n"}</Text>
+             
+           </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/tankclean.png')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Overhead Water Storage{"\n"}</Text>
+             
+           </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/carpetclean.jpg')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Carpet Cleaning{"\n"}</Text>
+             
+           </Card>
+           <Card style={styles.cardrowtwo}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/furnitureclean.jpg')} style={{height: 140, width: null, flex: 1}}/>
+            </CardItem>
+            <Text style={styles.description}>Furniture cleaning{"\n"}</Text>
+             
+           </Card>
+           </ScrollView>
+</View>
+         </CardItem>
+         </View>
+          </View>
+
+
+          <View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+
+
+          <View style={{width:widthPercentageToDP('99%')}}>
+          <View style={{flex:1,flexDirection:'column'}}>
+<CardItem>
+  <Text style={styles.description}>Painting and Renovation</Text>
+</CardItem>
+<CardItem>
+<View style={styles.twocardsinglerow}>
+<ScrollView
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}>
+
+                      <View style={{flexDirection:'column'}}>
+           <Card style={styles.cardrowfour} >
+           <CardItem cardBody>
+           <Image source={require('../assets/images/sofacleanad.png')} style={{height: 120, width: null, flex: 1}}/>
+            </CardItem>
+            </Card>
+            <Text style={{ minHeight:heightPercentageToDP('8%'), maxHeight:heightPercentageToDP('15%'),minWidth:widthPercentageToDP('8%'),maxWidth:widthPercentageToDP('35%'),textAlign:'center'}}>Sofa cleaning packages</Text>
+            </View>
+
+            <View style={{flexDirection:'column'}}>
+           <Card style={styles.cardrowfour}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/houseclean.jpg')} style={{height: 120, width: null, flex: 1}}/>
+            </CardItem>
+            </Card>
+            <Text style={{ minHeight:heightPercentageToDP('8%'), maxHeight:heightPercentageToDP('15%'),minWidth:widthPercentageToDP('8%'),maxWidth:widthPercentageToDP('35%'),textAlign:'center'}}>General cleaning{"\n"}</Text>
+            </View>
+
+            <View style={{flexDirection:'column'}}>
+           <Card style={styles.cardrowfour}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/tankclean.png')} style={{height: 120, width: null, flex: 1}}/>
+            </CardItem>
+            </Card>
+            <Text style={{ minHeight:heightPercentageToDP('8%'), maxHeight:heightPercentageToDP('15%'),minWidth:widthPercentageToDP('8%'),maxWidth:widthPercentageToDP('35%'),textAlign:'center'}}>Overhead Water Storage{"\n"}</Text>
+             </View>
+
+             <View style={{flexDirection:'column'}}>
+           <Card style={styles.cardrowfour}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/carpetclean.jpg')} style={{height: 120, width: null, flex: 1}}/>
+            </CardItem>
+            </Card>
+            <Text style={{ minHeight:heightPercentageToDP('8%'), maxHeight:heightPercentageToDP('15%'),minWidth:widthPercentageToDP('8%'),maxWidth:widthPercentageToDP('35%'),textAlign:'center'}}>Carpet Cleaning{"\n"}</Text>
+             </View>
+
+
+             <View style={{flexDirection:'column'}}>
+             <Card style={styles.cardrowfour}>
+           <CardItem cardBody>
+           <Image source={require('../assets/images/furnitureclean.jpg')} style={{height: 120, width: null, flex: 1}}/>
+            </CardItem>
+            </Card>
+             <Text style={{ minHeight:heightPercentageToDP('8%'), maxHeight:heightPercentageToDP('15%'),minWidth:widthPercentageToDP('8%'),maxWidth:widthPercentageToDP('35%'),textAlign:'center'}}>Furniture cleaning{"\n"}</Text>
+             </View
+             >
+           </ScrollView>
+</View>
+         </CardItem>
+         </View>
+          </View>
+          
+
+          <View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+
+
+          <View style={{width:widthPercentageToDP('99%')}}>
+          <View style={{flex:1,flexDirection:'column',padding:10}}>
           <View style={{flex:1,flexDirection:'row'}}>
             <Left style={{flex:1,flexDirection:'row'}}>
             <Text>Subscriptions  </Text>
@@ -245,30 +469,34 @@ import Subscription from '../Subscription';
           </View>
           <View>
           <CardItem cardBody>
-              <ImageBackground source={{uri: 'https://www.terminix.com/static-srvm/images/pest-control/cockroaches/BrownCockroach.jpg'}} style={{height: 130, width: 180}}>
+          <ImageBackground source={require('../assets/images/roach.jpg')} style={{height: 130, width: 180}}>
               <View style={{flex:1,flexDirection:'column',paddingTop:40,padding:10}}>
-              <Text style={{color:'white'}}>Cockroach Control</Text>
-              <Text style={{color:'blue',fontSize:13}}>Avail 3 services and get 20% off</Text>
-              <View style={{flex:1,flexDirection:'row'}}>
-              <Text style={{color:'white',textDecorationLine:'line-through',fontSize:13}}>2,2247</Text>
-              <Text  style={{color:'yellow',fontSize:13}}>   1,797  </Text>
-              <Text style={{color:'green',fontSize:13}}>20% off</Text>
+              <Text style={{color:'white',fontWeight:'bold'}}>Cockroach Control</Text>
+              <Text style={{color:'#7af3ff',fontSize:13}}>Avail 3 services and get 20% off</Text>
+              <View style={{flex:1,flexDirection:'row',justifyContent:'space-evenly'}}>
+              <Text style={{color:'#DCDCDC',textDecorationLine:'line-through',fontSize:13}}>2,2247</Text>
+              <Text  style={{color:'#FFFF00',fontSize:13}}>1,797</Text>
+              <Text style={{color:'#7FFF00',fontSize:13}}>20% off</Text>
               </View>
               </View>
               </ImageBackground>
             </CardItem>
           </View>
          </View>
-          </Card>
-          <View opacity={0.2}>
-          <Card style={{width:355,height:150}}>
+          </View>
+
+
+          <View style={{height:heightPercentageToDP('1%'),backgroundColor:'#f2efef'}}></View>
+
+
+
+          <View>
+          <View style={{width:widthPercentageToDP('99%'),height:heightPercentageToDP('20%')}}>
           
-           <Body>
-           <View style={{flexDirection:'row',paddingTop:10}}>
+          <View style={{flexDirection:'row',padding:'3%',justifyContent:'center'}}>
            <Image source={{uri: 'https://cdn3.iconfinder.com/data/icons/business-economic-3/65/79-512.png'}} style={{height: 40, width: 40,paddingLeft:40}}/>
-           <Text style={{ fontWeight:'bold',paddingTop:8,color:'black'}}>  HAPPINESS GUARANTEE</Text>
+           <Text style={{ fontWeight:'bold',paddingTop:'3%'}}>  HAPPINESS GUARANTEE</Text>
            </View>
-           </Body>
            
            <View style={{flex:1,flexDirection:'row',justifyContent: 'space-between'}}>
          
@@ -291,9 +519,9 @@ import Subscription from '../Subscription';
              
            </View>
            
-          </Card>
           </View>
-</ImageBackground>
+          </View>
+
       </View>
       </ScrollView>
     );
@@ -341,19 +569,32 @@ servicesiconrowtwo:{
 twocardsinglerow:{
   flex: 1,
   flexDirection: 'row',
+  justifyContent:'space-between',
   
   
 
 }, 
 
 cardrow:{
-  width:120, 
+  width:130, 
   height:170,
 },
+
+cardrowtwo:{
+width:190,
+height:190,
+},
+
+cardrowfour:{
+  width:120,
+  height:120,
+},
+
 description:{
  textAlign:'center',
  fontWeight:'bold',
  paddingTop:10,
+ 
 },
 
 searchbar:{
